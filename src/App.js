@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import { Counter } from "./components/counter/counter";
+import { Movies } from "./components/movies/movies";
 
 class App extends Component {
   render() {
@@ -23,8 +24,10 @@ class App extends Component {
           </a>
         </header>
 
-        <Counter />
-        <Counter name="another fancy counter" />
+        {/* <Counter /> */}
+        {/* <Counter name="another fancy counter" /> */}
+
+        <Movies />
       </div>
     );
   }

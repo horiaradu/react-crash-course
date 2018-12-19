@@ -1,0 +1,15 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 10px;
+}
+
+.movie-title {
+  font-weight: bold;
+}
+
+.movie-overview {
+  text-align: left;
+}
