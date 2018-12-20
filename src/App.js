@@ -4,6 +4,10 @@ import "./App.css";
 
 import { Counter } from "./components/counter/counter";
 import { Movies } from "./components/movies/movies";
+import { ContextConsumer } from "./components/context-consumer/context-consumer";
+
+const defaultValue = "light";
+export const MyContext = React.createContext(defaultValue);
 
 class App extends Component {
   render() {
@@ -27,7 +31,11 @@ class App extends Component {
         {/* <Counter /> */}
         {/* <Counter name="another fancy counter" /> */}
 
-        <Movies />
+        <MyContext.Provider value="something">
+          <ContextConsumer />
+        </MyContext.Provider>
+
+        {/* <Movies /> */}
       </div>
     );
   }
