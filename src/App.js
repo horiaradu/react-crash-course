@@ -31,11 +31,11 @@ class App extends Component {
         {/* <Counter /> */}
         {/* <Counter name="another fancy counter" /> */}
 
-        <MyContext.Provider value="something">
+        {/* <MyContext.Provider value="something">
           <ContextConsumer />
-        </MyContext.Provider>
+        </MyContext.Provider> */}
 
-        {/* <Movies /> */}
+        <Movies />
       </div>
     );
   }

@@ -3,19 +3,22 @@ import { Movie } from "../movie/movie";
 import { getMovies } from "../../services/api";
 
 export class Movies extends React.Component {
-  state = { likes: 0 };
+  state = { likes: 0, movies: [] };
   like = movie => {
     this.setState({ likes: this.state.likes + 1 });
   };
 
+  componentDidMount() {
+    getMovies().then(movies => this.setState({ ...this.state, movies }));
+  }
+
   render() {
-    const movies = getMovies();
     return (
       <React.Fragment>
         <p>Total likes: {this.state.likes}</p>
 
-        {movies.map(movie => (
-          <Movie movie={movie} onLike={this.like} />
+        {this.state.movies.map(movie => (
+          <Movie key={movie.id} movie={movie} onLike={this.like} />
         ))}
       </React.Fragment>
     );
