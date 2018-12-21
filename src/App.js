@@ -5,12 +5,13 @@ import "./App.css";
 import { Counter } from "./components/counter/counter";
 import { Movies } from "./components/movies/movies";
 import { ContextConsumer } from "./components/context-consumer/context-consumer";
-import { filteredMovies } from "./components/movies/tmdb-movies";
+import { filteredMovies } from "./components/movies/movies-hoc";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
 
 const AllMovies = filteredMovies(Movies);
+const TopMovies = filteredMovies(Movies, m => m.vote_average > 7.5);
 
 class App extends Component {
   render() {
@@ -38,7 +39,7 @@ class App extends Component {
           <ContextConsumer />
         </MyContext.Provider> */}
 
-        <AllMovies />
+        <TopMovies />
       </div>
     );
   }
