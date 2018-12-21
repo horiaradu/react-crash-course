@@ -5,9 +5,12 @@ import "./App.css";
 import { Counter } from "./components/counter/counter";
 import { Movies } from "./components/movies/movies";
 import { ContextConsumer } from "./components/context-consumer/context-consumer";
+import { filteredMovies } from "./components/movies/tmdb-movies";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
+
+const AllMovies = filteredMovies(Movies);
 
 class App extends Component {
   render() {
@@ -35,7 +38,7 @@ class App extends Component {
           <ContextConsumer />
         </MyContext.Provider> */}
 
-        <Movies />
+        <AllMovies />
       </div>
     );
   }
