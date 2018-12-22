@@ -42,7 +42,7 @@ class App extends Component {
 
         {/* <TopMovies /> */}
 
-        <HideShow show={true}>
+        <HideShow show={true} color="red">
           <Paragraph>first paragraph</Paragraph>
           <Paragraph>second paragraph</Paragraph>
         </HideShow>
