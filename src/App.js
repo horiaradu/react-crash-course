@@ -6,6 +6,7 @@ import { Counter } from "./components/counter/counter";
 import { Movies } from "./components/movies/movies";
 import { ContextConsumer } from "./components/context-consumer/context-consumer";
 import { filteredMovies } from "./components/movies/movies-hoc";
+import { HideShow, Paragraph } from "./components/compositions/children";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
@@ -39,7 +40,12 @@ class App extends Component {
           <ContextConsumer />
         </MyContext.Provider> */}
 
-        <TopMovies />
+        {/* <TopMovies /> */}
+
+        <HideShow show={true}>
+          <Paragraph>first paragraph</Paragraph>
+          <Paragraph>second paragraph</Paragraph>
+        </HideShow>
       </div>
     );
   }
