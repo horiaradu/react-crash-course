@@ -7,6 +7,7 @@ import { Movies } from "./components/movies/movies";
 import { ContextConsumer } from "./components/context-consumer/context-consumer";
 import { filteredMovies } from "./components/movies/movies-hoc";
 import { HideShow, Paragraph } from "./components/compositions/children";
+import { MouseTracker } from "./components/compositions/cat-and-mouse";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
@@ -18,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -31,7 +32,7 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header>
+        </header> */}
 
         {/* <Counter /> */}
         {/* <Counter name="another fancy counter" /> */}
@@ -42,10 +43,12 @@ class App extends Component {
 
         {/* <TopMovies /> */}
 
-        <HideShow show={true} color="red">
+        {/* <HideShow show={true} color="red">
           <Paragraph>first paragraph</Paragraph>
           <Paragraph>second paragraph</Paragraph>
-        </HideShow>
+        </HideShow> */}
+
+        <MouseTracker />
       </div>
     );
   }
