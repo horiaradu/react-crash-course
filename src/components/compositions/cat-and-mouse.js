@@ -46,12 +46,26 @@ export class Cat extends React.Component {
   }
 }
 
+// If you really want a HOC for some reason, you can easily
+// create one using a regular component with a render prop!
+function withMouse(Component) {
+  return class extends React.Component {
+    render() {
+      return (
+        <Mouse render={mouse => <Component {...this.props} mouse={mouse} />} />
+      );
+    }
+  };
+}
+
+const CatWithMouse = withMouse(Cat);
+
 export class MouseTracker extends React.Component {
   render() {
     return (
       <div>
         <h1>Move the mouse around!</h1>
-        <Mouse render={mouse => <Cat mouse={mouse} />} />
+        <CatWithMouse />
       </div>
     );
   }
