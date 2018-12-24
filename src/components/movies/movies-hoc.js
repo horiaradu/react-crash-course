@@ -1,29 +1,16 @@
 import React from "react";
 import { getMovies } from "../../services/api";
+import { useState, useEffect } from "react";
 
 // This function takes a component...
 // can have multiple components which display movies differently
 export function filteredMovies(MoviesListComponent, selector = () => true) {
   // ...and returns another component...
-  return class extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { movies: [] };
-    }
+  return props => {
+    const [movies, setMovies] = useState([]);
 
-    componentDidMount() {
-      getMovies().then(movies => this.setState({ movies }));
-    }
+    useEffect(() => getMovies().then(movies => setMovies(movies)), []);
 
-    render() {
-      // ... and renders the wrapped component with the fresh data!
-      // Notice that we pass through any additional props
-      return (
-        <MoviesListComponent
-          movies={this.state.movies.filter(selector)}
-          {...this.props}
-        />
-      );
-    }
+    return <MoviesListComponent movies={movies.filter(selector)} {...props} />;
   };
 }

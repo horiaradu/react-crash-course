@@ -41,7 +41,7 @@ class App extends Component {
           <ContextConsumer />
         </MyContext.Provider> */}
 
-        {/* <TopMovies /> */}
+        <TopMovies />
 
         {/* <HideShow show={true} color="red">
           <Paragraph>first paragraph</Paragraph>
