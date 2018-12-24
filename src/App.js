@@ -5,15 +5,24 @@ import "./App.css";
 import { Counter } from "./components/counter/counter";
 import { Movies } from "./components/movies/movies";
 import { ContextConsumer } from "./components/context-consumer/context-consumer";
-import { filteredMovies } from "./components/movies/movies-hoc";
+import {
+  filteredMovies,
+  useFilteredMovies
+} from "./components/movies/movies-hoc";
 import { HideShow, Paragraph } from "./components/compositions/children";
 import { MouseTracker } from "./components/compositions/cat-and-mouse";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
 
-const AllMovies = filteredMovies(Movies);
-const TopMovies = filteredMovies(Movies, m => m.vote_average > 7.5);
+const AllMovies = props => {
+  const movies = useFilteredMovies();
+  return <Movies movies={movies} {...props} />;
+};
+const TopMovies = props => {
+  const movies = useFilteredMovies(m => m.vote_average > 7.5);
+  return <Movies movies={movies} {...props} />;
+};
 
 class App extends Component {
   render() {
