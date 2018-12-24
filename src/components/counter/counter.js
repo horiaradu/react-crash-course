@@ -1,26 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useState } from "react";
 
-export class Counter extends React.Component {
-  state = { count: 0 };
+export const Counter = props => {
+  const [count, setCount] = useState(0);
 
-  increment = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
+  const increment = () => setCount(count + 1);
 
-  render() {
-    return (
-      <p>
-        <button onClick={this.increment}>click</button>
-        <br />
-        <br />
-        <span>
-          Counter ({this.props.name}): {this.state.count}
-        </span>
-      </p>
-    );
-  }
-}
+  return (
+    <p>
+      <button onClick={increment}>click</button>
+      <br />
+      <br />
+      <span>
+        Counter ({props.name}): {count}
+      </span>
+    </p>
+  );
+};
 
 Counter.propTypes = {
   name: PropTypes.string

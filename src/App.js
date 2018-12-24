@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
+        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -32,10 +32,10 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header> */}
+        </header>
 
-        {/* <Counter /> */}
-        {/* <Counter name="another fancy counter" /> */}
+        <Counter />
+        <Counter name="another fancy counter" />
 
         {/* <MyContext.Provider value="something">
           <ContextConsumer />
@@ -48,7 +48,7 @@ class App extends Component {
           <Paragraph>second paragraph</Paragraph>
         </HideShow> */}
 
-        <MouseTracker />
+        {/* <MouseTracker /> */}
       </div>
     );
   }
