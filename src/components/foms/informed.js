@@ -4,11 +4,16 @@ import { Form, Text } from "informed";
 export class ComplexForm extends React.Component {
   onSubmit = formState => console.log(formState);
 
+  setFormApi = formApi => {
+    this.formApi = formApi;
+  };
+  onSubmitFromOutside = () => this.onSubmit(this.formApi.getState());
+
   render() {
     return (
       <React.Fragment>
         <div>
-          <Form>
+          <Form getApi={this.setFormApi}>
             {({ formState }) => (
               <React.Fragment>
                 <div>
