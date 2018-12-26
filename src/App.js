@@ -10,6 +10,7 @@ import { HideShow, Paragraph } from "./components/compositions/children";
 import { MouseTracker } from "./components/compositions/cat-and-mouse";
 import { UncontrolledForm } from "./components/foms/uncontrolled-form";
 import { ControlledForm } from "./components/foms/controlled-form";
+import { ComplexForm } from "./components/foms/informed";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
@@ -52,8 +53,9 @@ class App extends Component {
 
         {/* <MouseTracker /> */}
 
-        <UncontrolledForm />
-        <ControlledForm />
+        {/* <UncontrolledForm />
+        <ControlledForm /> */}
+        <ComplexForm />
       </div>
     );
   }
