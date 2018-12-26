@@ -8,6 +8,8 @@ import { ContextConsumer } from "./components/context-consumer/context-consumer"
 import { filteredMovies } from "./components/movies/movies-hoc";
 import { HideShow, Paragraph } from "./components/compositions/children";
 import { MouseTracker } from "./components/compositions/cat-and-mouse";
+import { UncontrolledForm } from "./components/foms/uncontrolled-form";
+import { ControlledForm } from "./components/foms/controlled-form";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
@@ -19,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <header className="App-header">
+        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -32,7 +34,7 @@ class App extends Component {
           >
             Learn React
           </a>
-        </header> */}
+        </header>
 
         {/* <Counter /> */}
         {/* <Counter name="another fancy counter" /> */}
@@ -48,7 +50,10 @@ class App extends Component {
           <Paragraph>second paragraph</Paragraph>
         </HideShow> */}
 
-        <MouseTracker />
+        {/* <MouseTracker /> */}
+
+        <UncontrolledForm />
+        <ControlledForm />
       </div>
     );
   }
