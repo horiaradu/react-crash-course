@@ -9,6 +9,18 @@ export class ComplexForm extends React.Component {
   };
   onSubmitFromOutside = () => this.onSubmit(this.formApi.getState());
 
+  validateFirstName = value => {
+    console.log(value.length);
+    return value.length < 5 ? "field must have at least 5 chars" : null;
+  };
+
+  valudateLastName = (value, values) => {
+    console.log(values);
+    return value.length > values["first-name"].length
+      ? "last name should be shorter than first name"
+      : null;
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -17,8 +29,20 @@ export class ComplexForm extends React.Component {
             {({ formState }) => (
               <React.Fragment>
                 <div>
-                  <label htmlFor="state-name">First name:</label>
-                  <Text field="name" id="state-name" />
+                  <label htmlFor="first-name">First name:</label>
+                  <Text
+                    field="first-name"
+                    id="first-name"
+                    validate={this.validateFirstName}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="last-name">Last name:</label>
+                  <Text
+                    field="last-name"
+                    id="last-name"
+                    validate={this.valudateLastName}
+                  />
                 </div>
                 <button type="submit" onClick={() => this.onSubmit(formState)}>
                   Submit
