@@ -1,7 +1,7 @@
 import React from "react";
 
-import "./dummy.scss";
+import styles from "./dummy.module.scss";
 
 export const Dummy = () => {
-  return <p className="fancy-secondary">dummy</p>;
+  return <p className={styles["fancy-secondary"]}>dummy</p>;
 };
