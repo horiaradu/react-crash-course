@@ -1,0 +1,6 @@
+@import './variables.scss';
+$theme-colors: (
+  dark: #221f20,
+  white: #fff,
+);
+@import '~bootstrap/scss/bootstrap.scss';

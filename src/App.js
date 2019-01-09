@@ -10,9 +10,13 @@ import { MouseTracker } from "./components/compositions/cat-and-mouse";
 import { Router, Switch, Route } from "react-router-dom";
 import { Counters } from "./containers/counters";
 import { Forms } from "./containers/forms";
+import { BootstrapShowcase } from "./containers/bootstrap-showcase";
+
 import { RequireAuth } from "./components/require-auth";
 
 import history from "./history";
+
+import "./App.scss";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
@@ -49,6 +53,7 @@ class App extends Component {
             <Route path="/movies" exact component={AllMovies} />
             <Route path="/top-movies" exact component={TopMovies} />
             <Route path="/forms" exact render={requireAuth(Forms)} />
+            <Route path="/bootstrap" exact component={BootstrapShowcase} />
           </Switch>
         </Router>
 
