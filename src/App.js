@@ -2,15 +2,14 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import { Counter } from "./components/counter/counter";
 import { Movies } from "./components/movies/movies";
 import { ContextConsumer } from "./components/context-consumer/context-consumer";
 import { filteredMovies } from "./components/movies/movies-hoc";
 import { HideShow, Paragraph } from "./components/compositions/children";
 import { MouseTracker } from "./components/compositions/cat-and-mouse";
-import { UncontrolledForm } from "./components/foms/uncontrolled-form";
-import { ControlledForm } from "./components/foms/controlled-form";
-import { ComplexForm } from "./components/foms/informed";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Counters } from "./containers/counters";
+import { Forms } from "./containers/forms";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
@@ -37,14 +36,18 @@ class App extends Component {
           </a>
         </header>
 
-        {/* <Counter /> */}
-        {/* <Counter name="another fancy counter" /> */}
+        <BrowserRouter>
+          <Switch>
+            <Route path="/counters" exact component={Counters} />
+            <Route path="/movies" exact component={AllMovies} />
+            <Route path="/top-movies" exact component={TopMovies} />
+            <Route path="/forms" exact component={Forms} />
+          </Switch>
+        </BrowserRouter>
 
         {/* <MyContext.Provider value="something">
           <ContextConsumer />
         </MyContext.Provider> */}
-
-        {/* <TopMovies /> */}
 
         {/* <HideShow show={true} color="red">
           <Paragraph>first paragraph</Paragraph>
@@ -52,10 +55,6 @@ class App extends Component {
         </HideShow> */}
 
         {/* <MouseTracker /> */}
-
-        {/* <UncontrolledForm />
-        <ControlledForm /> */}
-        <ComplexForm />
       </div>
     );
   }
