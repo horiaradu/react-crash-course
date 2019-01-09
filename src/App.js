@@ -7,15 +7,22 @@ import { ContextConsumer } from "./components/context-consumer/context-consumer"
 import { filteredMovies } from "./components/movies/movies-hoc";
 import { HideShow, Paragraph } from "./components/compositions/children";
 import { MouseTracker } from "./components/compositions/cat-and-mouse";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 import { Counters } from "./containers/counters";
 import { Forms } from "./containers/forms";
+import { RequireAuth } from "./components/require-auth";
+
+import history from "./history";
 
 const defaultValue = "light";
 export const MyContext = React.createContext(defaultValue);
 
 const AllMovies = filteredMovies(Movies);
 const TopMovies = filteredMovies(Movies, m => m.vote_average > 7.5);
+
+const requireAuth = componentName => props => (
+  <RequireAuth>{React.createElement(componentName, { ...props })} </RequireAuth>
+);
 
 class App extends Component {
   render() {
@@ -36,14 +43,14 @@ class App extends Component {
           </a>
         </header>
 
-        <BrowserRouter>
+        <Router history={history}>
           <Switch>
             <Route path="/counters" exact component={Counters} />
             <Route path="/movies" exact component={AllMovies} />
             <Route path="/top-movies" exact component={TopMovies} />
-            <Route path="/forms" exact component={Forms} />
+            <Route path="/forms" exact render={requireAuth(Forms)} />
           </Switch>
-        </BrowserRouter>
+        </Router>
 
         {/* <MyContext.Provider value="something">
           <ContextConsumer />
