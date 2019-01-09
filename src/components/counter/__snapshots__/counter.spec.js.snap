@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter matches the snapshot 1`] = `
+<div>
+  <p>
+    <button>
+      click
+    </button>
+    <br />
+    <br />
+    <span>
+      Counter (
+      fancy counter
+      ): 
+      0
+    </span>
+  </p>
+</div>
+`;
