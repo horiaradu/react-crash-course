@@ -34,10 +34,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/react": "^4.1.6",
     "@storybook/addon-actions": "^4.1.6",
     "@storybook/addon-links": "^4.1.6",
+    "storybook-addon-specifications": "^2.1.2",
+    "@storybook/addon-storyshots": "^4.1.6",
     "@storybook/addons": "^4.1.6",
+    "@storybook/react": "^4.1.6",
     "babel-loader": "8.0.4"
   }
 }
