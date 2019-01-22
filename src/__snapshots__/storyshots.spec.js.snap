@@ -51,6 +51,10 @@ Array [
     Total likes: 
     0
   </p>,
+  <p>
+    Total movies: 
+    1
+  </p>,
   <div
     className="movie"
   >

@@ -59,7 +59,6 @@ storiesOf("Movies", module).add("with some movies", () => {
       it("increments the like count", () => {
         const output = mount(story);
         output.find("button").simulate("click");
-        console.log(output.html());
         expect(output.contains(<p>Total likes: 1</p>)).toBeTruthy();
       });
     })
